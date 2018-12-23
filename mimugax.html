@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Addition Calculator</title>
+  <script type="text/javascript">
+    //adding function
+    
+  function calculate(){
+    var name=document.getElementById('username').value;
+    document.getElementById('userhello').innerHTML='Hello '+name+'!';
+  var firstnumber = parseInt(document.getElementById('firstnumber').value);
+  var secondnumber = parseInt(document.getElementById('secondnumber').value);
+  var thirdnumber = parseInt(document.getElementById('thirdnumber').value);
+    var num=parseInt(document.getElementById("backgroundColor").value);
+    setcolor(num);
+    var result = 0;
+    var ops=document.getElementsByName("operation");
+    
+    /*if(ops[0].checked){
+      result=firstnumber+secondnumber+thirdnumber;
+    }
+    else if (ops[1].checked){
+      result=firstnumber-secondnumber-thirdnumber
+    }
+        else if (ops[2].checked){
+      result=firstnumber*secondnumber*thirdnumber
+    }
+        else if (ops[3].checked){
+      result=firstnumber/secondnumber/thirdnumber
+   }
+     */
+    var op= "";
+    for(var i = 0; i<ops.length; i++){
+      if(ops[i].checked) {
+        op=ops[i].value;
+      }
+    }
+    
+    switch(op) {
+      case "addition":
+      result = firstnumber + secondnumber + thirdnumber;
+      break;
+      case "subtraction":
+      result = firstnumber - secondnumber - thirdnumber;
+      break; 
+      case "multiplcation":
+      result = firstnumber * secondnumber * thirdnumber;
+      break;      
+      case "division":
+      result = firstnumber / secondnumber / thirdnumber;
+      break;
+      default:
+      result = "I don't understand. What do you mean?";
+    }
+  document.getElementById('result').innerHTML='The '+ op + ' of ' +firstnumber +' and '+secondnumber+' and '+thirdnumber+' is '+result;
+   
+  
+}
+    function setcolor(num){
+      var colors=['magenta', 'purple', 'pink', 'aqua', 'violet', 'royalBlue', 'rebeccaPurple', 'plum', 'slateBlue','paleVioletRed', 'teal', 'orchid', 'mistyRose', 'mediumVioletRed', 'mediumSlateBlue', 'lightCoral', 'mediumOrchid', 'lavenderBlush', 'cyan', 'lavender', 'hotPink', 'fuchsia', 'dodgerBlue', 'deepPink', 'darkViolet', 'darkTurquoise', 'darkOrchid','crimson'];
+      document.body.style.backgroundColor=colors[num];
+    }
+  //end of add function
+  </script>
+  
+    </head>
+  <body>
+   <center>     <h1 id="userhello"> Hello! </h1>
+     What's your name?
+     <br>
+<input type="text" placeholder="Enter your name!" id="username">
+     <br>
+     <br>
+     Enter a number between 0-27
+     <br>
+     <input type="text" placeholder="What's the number?" id="backgroundColor">
+     
+<h2> Hi! I'm Mimu Gax. I am a calculator that solves math problems. Let me help you!</h2>
+  
+  
+
+  What's the first number?<input type="text" placeholder="First number!" id="firstnumber">
+    <br>
+     <br>
+    Now enter the second number<input type="text" placeholder="Second number!" id="secondnumber">
+     <br>
+     <br>
+    Enter the third and final number<input type="text" placeholder="Third number!" id="thirdnumber">
+     <br>
+     <br>
+     <h3>What do you want me to do?</h3>
+     <input type="radio" name="operation" value="addition">
+     <br>
+     Add
+     <br>
+     <br>
+     <input type="radio" name="operation" value="subtraction">
+     <br>
+     Subtract
+     <br>
+     <br>
+     <input type="radio" name="operation" value="multiplcation">
+     <br>
+     Multiply
+     <br>
+     <br>
+     <input type="radio" name="operation" value="division">
+     <br>
+     Divide
+     <br>
+     <br>
+
+    <input type="Submit" onclick='calculate()'>
+     <h3 id="result"> </h3>
+     <br>
+     <br>
+     <img src="https://rlv.zcache.com/cute_calculator_and_ruler_square_sticker-rffb1e734587849d8bc6710d56da69d14_v9wf3_8byvr_307.jpg">
+     
+  </center>
+
+
+</body>
+</html>
