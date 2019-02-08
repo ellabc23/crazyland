@@ -1,0 +1,170 @@
+<html>
+  <body>
+    <h1> Save Buttercup!</h1>
+    
+    
+<button onclick="myFunction()"> How to Play</button>
+
+<script>
+function myFunction() {
+      prompt("You have a choice. You can choose to be Westly or Inigo. Enter here!");
+    alert("Buttercup was kidnapped by Humperdink! He has a game for you.");
+    alert("You have to enter letters to spell out the word he's thinking of.");
+    alert("Good luck!");
+}
+</script>
+<br>
+    <br>
+    <input id="guess" type="text" maxlength="1" placeholder="Enter a one letter guess!"/>
+    
+    <button onclick="makeGuess()">Guess!</button>
+    <h2 id="guesses"></h2>
+    <canvas id="stickman"/>
+    
+
+  </body>
+</html>
+  <script type="text/javascript">
+  var frame1 = function() {
+  draw(0, 150, 150, 150);
+}
+   
+var frame2 = function() {
+  draw(10, 0, 10, 600);
+}
+  
+var frame3 = function() {
+  draw(0, 5, 70, 5);
+}
+
+var frame4 = function() {
+  draw(60, 5, 60, 15);
+}
+
+var head = function(){
+  stickman = document.getElementById("stickman");
+  context = stickman.getContext("2d");
+  context.beginPath();
+  context.arc(60, 25, 10, 0, Math.PI * 2, true);
+  context.stroke();
+}
+
+var torso = function() {
+  draw(60, 36, 60, 70);
+}
+
+var rightArm = function() {
+  draw(60, 46, 100, 50);
+}
+
+var leftArm = function() {
+  draw(60, 46, 20, 50);
+}
+
+var rightLeg = function() {
+  draw(60, 70, 100, 100);
+}
+
+var leftLeg = function() {
+  draw(60, 70, 20, 100);
+}
+
+var drawArray = [rightLeg, leftLeg, rightArm, leftArm,  torso,  head, frame4, frame3, frame2, frame1];
+
+var lives = drawArray.length;
+
+var answerArray = [];
+
+var words = ["westly", "love", "inconceivable", "rhyme", "vizzini", "fezzik", "humperdinck", " guilder",  "iocane", "montoya", "roberts", "rodents"];
+
+var word = getRandomWord();
+
+var remainingLetters = word.length;
+
+function draw(pathFromX, pathFromY, pathToX, pathToY) {
+  stickman = document.getElementById("stickman");
+  context = stickman.getContext("2d");
+  context.moveTo(pathFromX, pathFromY);
+  context.lineTo(pathToX, pathToY);
+  context.stroke(); 
+}
+
+function getRandomWord() {
+  return words[Math.floor(Math.random() * words.length)];
+}
+
+function createAnswerArray() {
+  for (var i = 0; i < word.length; i++) {
+    answerArray[i] = "_";
+  }
+}
+
+function updateStickman() {
+  for (var l = drawArray.length - 1; l >= lives; l--) {
+    drawArray[l]();
+  }
+}
+
+function updateUI() {
+  // update guesses
+  document.getElementById("guesses").innerHTML = answerArray.join(" ");
+
+  // update stickman
+  updateStickman();
+}
+
+function makeGuess() {
+  if (remainingLetters > 0 && lives > 0) {
+    var guessIsCorrect = false;
+    var guessElement = document.getElementById("guess");
+    var guess = guessElement.value;
+    guessElement.value = "";
+    if (guess && guess.length == 1) {
+      for (var j = 0; j < word.length; j++) {
+        if (word[j] === guess) {
+          // update the answer array
+          answerArray[j] = guess;
+          
+          // set the flag true
+          guessIsCorrect = true;
+
+          // update the remainingLetters
+          remainingLetters--;
+
+          
+          //you win!!!
+          if(remainingLetters === 0){
+            answerArray = ["Y", "O", "U", " ", " ", "W", "I", "N", "!"]
+          }
+        }
+          }
+          // handle incorrect guess
+        if(!guessIsCorrect){
+          lives--;
+          
+          //you lose
+          if(lives === 0){
+            alert("Luckily she's only mostly dead, so you can click alt and r and start over!");
+        }
+      }
+      
+    }
+  }
+  
+updateUI();
+}
+
+//run the game
+createAnswerArray();
+updateUI();
+document.onkeydown = function(e) {
+  switch (e.keyCode) {
+
+    case 82:
+      if(e.shiftKey) {
+        document.location.reload();
+      }
+    break;
+  }
+};
+  </script>
