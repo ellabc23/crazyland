@@ -1,66 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Breakout</title>
+    <title>Dragon Bars</title>
     <h4>Press space to pause!</h4>
     </style>
   </head>
   <body>
-  <body style="background-color:purple;">
-<script type="text/css">
-      body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        
-        background-color: purple;
-        font-family: monospace;
-        
-      }
-      canvas {
-        border: solid magenta;
-        display: block;
-        border-bottom:solid magenta;
-        
-}
+    <h1 class="Ella" id="title">Dragon Bars!</h1>
+    
+<button onclick="myFunction()"> How to Play</button>
 
-#title{
-  text-align: center;
-  width:100%;
-    height:75;
-  line-height:75;
-  font-size: 50;
-  background-color:hotPink;
-  
+<script>
+function myFunction() {
+    alert("Hello! Are you ready to play Dragon Bars? Enter your nickname. You are a water dragon.");
+    alert("All of your dragons friends are in dragon jail. Break them out to earn new dragon types!");
+    alert("If you free all of the dragons, you unlock the next dragon type.");
+    alert("llORDER OF UNLOCKED DRAGONSll  *water *fire *air *earth *light *nature *shadow *ice *lightning ");
 }
-.someMargin {
-  margin-bottom: 30;
-  
-}
-<\script>
-<h1 class="Ella" id="title">BREAKOUT!</h1>
-    <input id="nickNameInput" placeholder="Enter your name!"></input>
+</script>
+    <input id="nickNameInput" placeholder="Enter your dragon's name!"></input>
 <button class="someMargin" onclick="startClicked()">START</button>
-    <input id="ballColorInput" placeholder="Enter your ball color!"></input>
+    <input id="ballColorInput" placeholder="Enter your dragon type!"></input>
       <canvas id="canvas"></canvas>
 <h2 class="Ella" id="score">SCORE:0
     
     <div id="highScores"></div>
     
-     <script type="text/javascript"
-     var CANVAS_SIZE = 300;
+    <script>
+    var CANVAS_SIZE = 300;
 var BLOCK_WIDTH = 50;
 var BLOCK_HEIGHT = 20;
 var PADDLE_WIDTH = 100;
 var PADDLE_HEIGHT = 5;
 var SCORE_ADD = 100;
 
-var TITLE = 'BREAKOUT!';
+var TITLE = 'Dragon Bars!';
 var PAUSED = 'Paused';
-var GAME_OVER = 'Game Over!';
-var YOU_WIN = 'You Win!';
-var SCORE = 'Score: ';
+var GAME_OVER = 'You were captured...';
+var YOU_WIN = 'You freed them all!';
+var SCORE = 'Dragons freed: ';
 
 var LEFT_ARROW = 37;
 var RIGHT_ARROW = 39;
@@ -69,8 +47,8 @@ var R_KEY = 82;
 
 var score = 0;
 var highScores = [];
-var nickname = 'Player';
-var ballColor = 'black';
+var nickname = [];
+var ballColor = [];
 
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
@@ -248,7 +226,7 @@ function drawPaddle() {
 
   ctx.beginPath();
   ctx.rect(paddle.position.x, paddle.position.y, PADDLE_WIDTH, PADDLE_HEIGHT);
-  ctx.fillStyle = 'darkOrchid';
+  ctx.fillStyle = 'white';
   ctx.fill();
   ctx.stroke();
 }
@@ -322,6 +300,42 @@ var motion = (function () {
 })();
 
 motion.start();
- </script>   
+
+    </script>
+    
+    <style>
+          body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        
+    background-color:blue;
+        font-family: monospace;
+        
+      }
+      canvas {
+        border: 1px solid aliceblue;
+        display: block;
+        border-bottom: 1px solid aliceblue;
+        background-image:url(https://physicsworld.com/wp-content/uploads/2013/09/clouds-3.jpg);
+        
+}
+
+#title{
+  text-align: center;
+  width:100%;
+    height:75px;
+  line-height:75px;
+  font-size: 50px;
+ background-color: aqua;
+  
+}
+.someMargin {
+  margin-bottom: 30px;
+  
+}
+
+    </style>
   </body>
 </html>
