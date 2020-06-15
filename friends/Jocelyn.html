@@ -1,0 +1,66 @@
+<body style="background-color:#08ffa0;">
+   <title>Jocelyn</title>
+<center> <b>Jocelyn</b>
+<p>Jocelyn is a star at sports!
+<p>
+<b>Likes:</b>
+<p>
+Soccer
+<p>
+BB8
+<p>
+The color green
+<p>
+   <div id="container">
+  <img id="image-to-vote-on" src="images/image_1.jpg">
+
+</div>
+<script>
+ var images= [
+  {
+    src:"https://c7.uihere.com/files/590/686/515/moon-pink-sky-blue-sky-night-sky-thumb.jpg"
+  },
+  {
+    src:"https://i1.pickpik.com/photos/979/796/888/tree-lake-pakistan-nature-thumb.jpg"
+  },
+   {
+    src:"https://i2.pickpik.com/photos/349/961/205/cherry-blossom-cherry-flowers-flower-thumb.jpg"
+  },
+    {
+    src:"https://c7.uihere.com/files/29/247/759/nature-landscape-water-ocean-thumb.jpg"
+  }, 
+     {
+    src:"https://c7.uihere.com/files/309/260/36/pier-nature-beach-sunset-thumb.jpg"
+  },
+  {
+    src:"https://i2.pickpik.com/photos/642/808/987/waterfall-mountain-nature-rock-thumb.jpg"
+  },
+    {
+    src:"https://i2.pickpik.com/photos/851/374/543/autumn-fall-foliage-leaves-park-thumb.jpg"
+  },
+    {
+    src:"https://i2.pickpik.com/photos/170/611/711/crocus-spring-flower-purple-thumb.jpg"
+  }
+]
+
+var index = 0;
+var nextIndex = [1, 2, 3, 4, 5, 6, 7, 0]
+
+setInterval(() => {
+  index = nextIndex[index];
+
+  // index = (index + 1) % images.length
+  
+  // if (index < images.length) {
+  //   index = index + 1
+  // } else {
+  //   index = 0
+  // }
+  
+  // index = index < images.length ? index + 1 : 0;
+
+  var imgEl = document.getElementById('image-to-vote-on');
+  imgEl.src = images[index].src
+  
+}, 1000)
+  </script>
