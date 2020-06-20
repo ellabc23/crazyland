@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Zahara's Breakout</title>
+    <title>Dragon Bars</title>
     <h4>Press space to pause!</h4>
     </style>
   </head>
   <body>
-    <h1 class="Zahara" id="title">Zahara's Breakout<h3>We will miss you!</h3></h1>
+    <h1 class="Ella" id="title">Dragon Bars!</h1>
+    
 <button onclick="myFunction()"> How to Play</button>
+
+<script>
+function myFunction() {
+    alert("Hello! Are you ready to play Dragon Bars? Enter your nickname. You are a water dragon.");
+    alert("All of your dragons friends are in dragon jail. Break them out to earn new dragon types!");
+    alert("If you free all of the dragons, you unlock the next dragon type.");
+    alert("llORDER OF UNLOCKED DRAGONSll  *water *fire *air *earth *light *nature *shadow *ice *lightning ");
+}
+</script>
+    <input id="nickNameInput" placeholder="Enter your dragon's name!"></input>
+<button class="someMargin" onclick="startClicked()">START</button>
+    <input id="ballColorInput" placeholder="Enter your dragon type!"></input>
+      <canvas id="canvas"></canvas>
+<h2 class="Ella" id="score">SCORE:0
+    
+    <div id="highScores"></div>
+  
+
+  </body>
+</html>
 
 <script>
 function myFunction() {
@@ -33,21 +54,21 @@ function myFunction() {
   </body>
 </html>
 <style>
-          body {
+   body {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         
-    background-color:#ff4f9e;
-        font-family: cursive;
+    background-color:blue;
+        font-family: monospace;
         
       }
       canvas {
-        border: 1px solid #fc03be;
+        border: 1px solid aliceblue;
         display: block;
-        border-bottom: 1px solid #fc03be;
-        background-image:url(https://previews.123rf.com/images/kotkoa/kotkoa1605/kotkoa160500063/56563954-fabric-texture-pattern-with-seamless-flowers-the-floral-seamless-pattern-over-light-background-flowe.jpg);
+        border-bottom: 1px solid aliceblue;
+        background-image:url(https://physicsworld.com/wp-content/uploads/2013/09/clouds-3.jpg);
         
 }
 
@@ -57,7 +78,7 @@ function myFunction() {
     height:75px;
   line-height:75px;
   font-size: 50px;
- background-color: #ff91fd;
+ background-color: aqua;
   
 }
 .someMargin {
@@ -73,11 +94,11 @@ var PADDLE_WIDTH = 100;
 var PADDLE_HEIGHT = 5;
 var SCORE_ADD = 10;
 
-var TITLE = 'Zahara"s Breakout!';
+var TITLE = 'Dragon Bars!';
 var PAUSED = 'Paused';
-var GAME_OVER = 'Try again...';
-var YOU_WIN = 'You won!';
-var SCORE = 'Points: ';
+var GAME_OVER = 'You were captured...';
+var YOU_WIN = 'You freed them all!';
+var SCORE = 'Dragons freed: ';
 
 var LEFT_ARROW = 37;
 var RIGHT_ARROW = 39;
@@ -242,15 +263,15 @@ function didBreakBlock(ballX, ballY) {
 
 function pickFillColor(n) {
   if (n === 0) {
-    return '#9d19c2';
+    return 'darkBLue';
   } else if (n === 1) {
-    return '#b137d4';
+    return 'blue';
   } else if (n === 2) {
-    return '#c553e6';
+    return 'dodgerBlue';
   } else if(n === 3) {
-    return '#d473f0';
+    return 'deepSkyBlue';
   }else if(n===4){
-    return '#e68fff';
+    return 'cyan';
   }
 }
 
@@ -265,7 +286,7 @@ function drawPaddle() {
 
   ctx.beginPath();
   ctx.rect(paddle.position.x, paddle.position.y, PADDLE_WIDTH, PADDLE_HEIGHT);
-  ctx.fillStyle = '#ff38bd';
+  ctx.fillStyle = 'white';
   ctx.fill();
   ctx.stroke();
 }
@@ -339,4 +360,5 @@ var motion = (function () {
 })();
 
 motion.start();
+
 </script>
